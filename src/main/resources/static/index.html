@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca App | Sistema de Gestión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">BIBLIO<span>TECH</span></h1>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('libros')">Libros</a></li>
+                <li><a href="#" onclick="showSection('usuarios')">Usuarios</a></li>
+                <li><a href="#" onclick="showSection('prestamos')">Préstamos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content">
+        <!-- SECCIÓN LIBROS -->
+        <section id="sec-libros" class="section">
+            <div class="section-header">
+                <h2>Catálogo de Libros</h2>
+                <button class="btn btn-primary" onclick="openModal('modal-libro')">Nuevo Libro</button>
+            </div>
+            <div class="card">
+                <table id="table-libros">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Género</th>
+                            <th>Año</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-libros"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN USUARIOS -->
+        <section id="sec-usuarios" class="section" style="display:none;">
+            <div class="section-header">
+                <h2>Gestión de Usuarios</h2>
+                <button class="btn btn-primary" onclick="openModal('modal-usuario')">Nuevo Usuario</button>
+            </div>
+            <div class="card">
+                <table id="table-usuarios">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Carnet</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-usuarios"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PRÉSTAMOS -->
+        <section id="sec-prestamos" class="section" style="display:none;">
+            <div class="section-header">
+                <h2>Préstamos Activos</h2>
+            </div>
+            <div class="loan-container">
+                <div class="card loan-form-card">
+                    <h3>Registrar Nuevo Préstamo</h3>
+                    <form id="form-prestamo">
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <select id="select-usuarios" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Libro Disponible</label>
+                            <select id="select-libros" required></select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-full">Realizar Préstamo</button>
+                    </form>
+                </div>
+                <div class="card loan-list-card">
+                    <table id="table-prestamos">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Libro</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-prestamos"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL LIBRO -->
+    <div id="modal-libro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-libro')">&times;</span>
+            <h3>Agregar Nuevo Libro</h3>
+            <form id="form-libro">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" id="lib-titulo" required>
+                </div>
+                <div class="form-group">
+                    <label>Autor</label>
+                    <input type="text" id="lib-autor" required>
+                </div>
+                <div class="form-group">
+                    <label>ISBN</label>
+                    <input type="text" id="lib-isbn" required>
+                </div>
+                <div class="form-group">
+                    <label>Género</label>
+                    <input type="text" id="lib-genero" required>
+                </div>
+                <div class="form-group">
+                    <label>Año de Publicación</label>
+                    <input type="number" id="lib-anio" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Guardar Libro</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL USUARIO -->
+    <div id="modal-usuario" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-usuario')">&times;</span>
+            <h3>Agregar Nuevo Usuario</h3>
+            <form id="form-usuario">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="usu-nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="usu-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Número de Carnet</label>
+                    <input type="text" id="usu-carnet" required>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" id="usu-telefono" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Guardar Usuario</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
