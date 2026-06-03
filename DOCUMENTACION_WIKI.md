@@ -1,10 +1,25 @@
 # Wiki del Proyecto: Sistema de Gestión de Biblioteca
 
-Este documento detalla los requerimientos y las historias de usuario para el **Sistema de Gestión de Biblioteca**, desarrollado como parte del proyecto final de Diseño de Software.
+Este documento detalla la documentación técnica, los requerimientos y las historias de usuario para el **Sistema de Gestión de Biblioteca**, desarrollado como proyecto final de la asignatura de Diseño de Software.
 
 ---
 
-## 1. Requerimientos Funcionales (RF)
+## 1. Descripción del Proyecto
+
+El **Sistema de Gestión de Biblioteca** es una solución de software integral diseñada para optimizar y automatizar los procesos de administración de una biblioteca moderna. El objetivo principal es reemplazar los registros manuales por una plataforma digital eficiente que facilite el control de inventario de libros, el registro de usuarios y la trazabilidad de los préstamos.
+
+### Problemática a Resolver
+Muchas bibliotecas pequeñas o académicas enfrentan dificultades para mantener un control preciso sobre la disponibilidad de sus ejemplares y la puntualidad en las devoluciones. Este sistema resuelve este problema mediante la actualización en tiempo real del estado de los libros y una base de datos centralizada.
+
+### Solución Arquitectónica
+Se ha implementado una arquitectura de **n-capas** utilizando:
+- **Backend:** Una API REST robusta construida con **Spring Boot** que gestiona la lógica de negocio.
+- **Frontend:** Una interfaz de usuario tipo **SPA (Single Page Application)** ágil y moderna.
+- **Persistencia:** Una base de datos **NoSQL (MongoDB Atlas)** que permite una alta escalabilidad y acceso desde cualquier lugar.
+
+---
+
+## 2. Requerimientos Funcionales (RF)
 
 Los requerimientos funcionales describen las acciones que el sistema debe ser capaz de realizar.
 
