@@ -21,8 +21,6 @@ Se ha implementado una arquitectura de **n-capas** utilizando:
 
 ## 2. Requerimientos Funcionales (RF)
 
-Los requerimientos funcionales describen las acciones que el sistema debe ser capaz de realizar.
-
 | ID | Requerimiento | Descripción |
 |:---|:---|:---|
 | **RF01** | **Gestión de Libros (CRUD)** | El sistema debe permitir crear, leer, actualizar y eliminar libros del catálogo. |
@@ -34,54 +32,52 @@ Los requerimientos funcionales describen las acciones que el sistema debe ser ca
 
 ---
 
-## 2. Requerimientos No Funcionales (RNF)
-
-Los requerimientos no funcionales describen las características de calidad del sistema.
+## 3. Requerimientos No Funcionales (RNF)
 
 | ID | Requerimiento | Descripción |
 |:---|:---|:---|
-| **RNF01** | **Persistencia en la Nube** | El sistema debe utilizar MongoDB Atlas como base de datos externa para garantizar la persistencia. |
+| **RNF01** | **Persistencia en la Nube** | El sistema debe utilizar MongoDB Atlas como base de datos externa. |
 | **RNF02** | **Arquitectura Desacoplada** | El backend debe estar separado del frontend mediante una API REST. |
-| **RNF03** | **Interfaz de Usuario (SPA)** | La interfaz debe ser una Single Page Application (SPA) para mejorar la fluidez. |
-| **RNF04** | **Escalabilidad** | El uso de Spring Boot permite que el sistema pueda crecer en funcionalidades fácilmente. |
-| **RNF05** | **Diseño Responsivo** | El frontend debe adaptarse a diferentes tamaños de pantalla mediante CSS moderno. |
+| **RNF03** | **Interfaz de Usuario (SPA)** | La interfaz debe ser una Single Page Application (SPA). |
+| **RNF04** | **Escalabilidad** | Uso de Spring Boot para facilitar el crecimiento del sistema. |
+| **RNF05** | **Diseño Responsivo** | El frontend debe ser compatible con diversos dispositivos (CSS Moderno). |
 
 ---
 
-## 3. Historias de Usuario (HU)
-
-A continuación se presentan las historias de usuario siguiendo el formato: *"Como [rol], quiero [acción], para [beneficio]"*.
+## 4. Historias de Usuario (HU)
 
 ### HU01: Registro de nuevos libros
-**Como** bibliotecario,  
-**quiero** ingresar los datos de un nuevo libro (título, autor, ISBN),  
-**para** que esté disponible en el catálogo de la biblioteca.
+**Como** bibliotecario, **quiero** ingresar los datos de un nuevo libro, **para** que esté disponible en el catálogo.
 
 ### HU02: Registro de préstamos
-**Como** bibliotecario,  
-**quiero** asignar un libro específico a un usuario mediante su carnet,  
-**para** llevar un control de quién tiene cada ejemplar.
+**Como** bibliotecario, **quiero** asignar un libro a un usuario, **para** llevar un control de posesión.
 
 ### HU03: Devolución de libros
-**Como** bibliotecario,  
-**quiero** marcar un préstamo como "Devuelto",  
-**para** que el libro vuelva a aparecer como disponible para otros usuarios.
+**Como** bibliotecario, **quiero** marcar un préstamo como "Devuelto", **para** liberar el ejemplar.
 
 ### HU04: Visualización del catálogo
-**Como** usuario/bibliotecario,  
-**quiero** ver la lista de todos los libros y su estado actual,  
-**para** saber qué libros puedo solicitar en préstamo.
-
-### HU05: Administración de usuarios
-**Como** administrador,  
-**quiero** registrar los datos personales de los nuevos miembros,  
-**para** identificarlos al momento de realizar un préstamo.
+**Como** usuario, **quiero** ver la lista de libros y su estado, **para** saber qué puedo solicitar.
 
 ---
 
-## 4. Tecnologías Utilizadas
-- **Lenguaje:** Java 17
-- **Framework:** Spring Boot 3.2.5
-- **Base de Datos:** MongoDB Atlas
-- **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
-- **Control de Versiones:** Git / GitHub
+## 5. Tecnologías Utilizadas
+- **Java 17** & **Spring Boot 3.2.5**
+- **MongoDB Atlas** (Base de Datos en la Nube)
+- **HTML5, CSS3 y JavaScript Vanilla**
+- **Maven** (Gestión de dependencias)
+
+---
+
+## 6. Instrucciones de Ejecución
+
+Para poner en marcha el proyecto localmente, siga estos pasos:
+
+1. **Prerrequisitos:** Tener instalado Java 17 y Maven.
+2. **Configuración:** El archivo `src/main/resources/application.properties` ya está configurado para conectar con el Cluster de MongoDB Atlas.
+3. **Ejecución del Backend:**
+   ```bash
+   mvn spring-boot:run
+   ```
+4. **Acceso a la Aplicación:**
+   Una vez que el servidor indique que ha iniciado, abra en su navegador:
+   `http://localhost:8080/index.html`
